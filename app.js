@@ -59,7 +59,9 @@ function handleColorItemClick(e) {
   setTimeout(() => colorAlertEl.classList.remove("show"), 1500);
 }
 
-function copyPalette(e) {
+function handleKeyPress(e) {
+  if (e.key === " ") app();
+
   if (e.key === "c") {
     navigator.clipboard.writeText(colorPalette.join(" , "));
   }
@@ -79,4 +81,4 @@ colorItems.forEach((colorItem) => {
   colorItem.addEventListener("click", handleColorItemClick);
 });
 
-window.addEventListener("keypress", copyPalette);
+window.addEventListener("keypress", handleKeyPress);
